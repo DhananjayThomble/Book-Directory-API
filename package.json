@@ -1,0 +1,30 @@
+{
+  "name": "book-directory-nodejs",
+  "version": "1.0.0",
+  "description": "Book Directory App using NodeJS and MYSQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhananjayThomble/book-directory-nodejs.git"
+  },
+  "author": "Dhananjay Thomble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DhananjayThomble/book-directory-nodejs/issues"
+  },
+  "homepage": "https://github.com/DhananjayThomble/book-directory-nodejs#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mariadb": "^3.1.0",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.21",
+    "sequelize": "^6.29.3"
+  }
+}

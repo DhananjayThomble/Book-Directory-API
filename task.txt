@@ -1,0 +1,22 @@
+Build a book directory with having a collection of books where you can create endpoints using 4
+ basic methods: GET, PUT, POST, and DELETE. Do check whether NodeJS  installed
+ in prior, modules like nodemon to auto-restart NodeJS, server, body-parser to read
+ & display response in JSON form, and other required modules.
+ Keep index.js as the root file from where you can redirect to other sub-components and files.
+
+Features of Books Directory:
+
+Management of database using POSTMAN.
+Ensuring whether proper API calls are made and routes are connected.
+Technologies to use: Nodejs, Express, (MySQL database).
+
+API Required
+.API to search for particular book of given name.
+.API to get ALL books available in Directory in alphabetical order.
+.API to Delete book of given name from directory if book is not present in directory to delete then it should return ressponse according to that.
+.API to Add book of given name in directory 
+if book is already present in Directory it should return Book already available in response.
+
+
+Note
+Create API's using sequelize
