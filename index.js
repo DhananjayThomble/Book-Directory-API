@@ -8,24 +8,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
-// MYSQL connection
-console.log(process.env.DATABASE);
-const sequelize = new Sequelize(
-  process.env.DATABASE,
-  process.env.DATABASE_USER,
-  process.env.DATABASE_PASSWORD,
-  {
-    host: process.env.DATABASE_HOSTNAME,
-    dialect: "mysql",
-  }
-);
+app.use("/", require("./routes/bookRouter"));
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Connection has been established successfully.");
-  })
-  .catch((error) => {
-    console.error("Unable to connect to the database: ", error);
-  });
-// Connection End
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
