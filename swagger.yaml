@@ -5,6 +5,9 @@ info:
   version: 1.0.0
 
 servers:
+  - url: https://book.dhananjaythomble.me
+    description: Production server
+    
   - url: http://localhost:3000
     description: Local server
 
