@@ -1,0 +1,201 @@
+openapi: 3.0.0
+info:
+  title: Book Directory API
+  description: API for managing books in MYSQL database using Sequelize ORM
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: Local server
+
+paths:
+  /:
+    get:
+      summary: Get all books in alphabetical order by title
+      description: Get all books
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    title:
+                      type: string
+                    author:
+                      type: string
+                    release_date:
+                      type: string
+                    createdAt:
+                      type: string
+                    updatedAt:
+                      type: string
+
+    post:
+      summary: Create a book
+      description: Create a book in the database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                author:
+                  type: string
+                release_date:
+                  type: string
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  author:
+                    type: string
+                  release_date:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+        "409":
+          description: Book already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Book already exists
+
+  /{title}:
+    get:
+      summary: Get book by title
+      description: Get book by title
+      parameters:
+        - in: path
+          name: title
+          schema:
+            type: string
+          required: true
+          description: Title of the book
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  author:
+                    type: string
+                  release_date:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+
+        "404":
+          description: Book not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Book not found
+
+    put:
+      summary: Update book by title
+      description: Update book by title
+      parameters:
+        - in: path
+          name: title
+          schema:
+            type: string
+          required: true
+          description: Title of the book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                author:
+                  type: string
+                release_date:
+                  type: string
+
+      responses:
+        "200":
+          description: Book updated successfully
+          content:
+            application/json:
+              schema:
+                type: number
+                example: 1
+        "404":
+          description: Book not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Book not found
+    delete:
+      summary: Delete book by title
+      description: Delete book by title
+      parameters:
+        - in: path
+          name: title
+          schema:
+            type: string
+          required: true
+          description: Title of the book
+      responses:
+        "200":
+          description: Book deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Book deleted successfully
+        "404":
+          description: Book not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Book not found
