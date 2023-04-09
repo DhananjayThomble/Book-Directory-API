@@ -11,7 +11,7 @@ const sequelize = new Sequelize(
     }
 );
 // .authenticate() is used to check if the connection is established or not
-await sequelize
+sequelize
     .authenticate()
     .then(() => {
         console.log("Connection has been established successfully.");
