@@ -12,7 +12,7 @@ servers:
     description: Local server
 
 paths:
-  /:
+  /api/:
     get:
       summary: Get all books in alphabetical order by title
       description: Get all books
@@ -86,7 +86,7 @@ paths:
                     type: string
                     example: Book already exists
 
-  /{title}:
+  /api/{title}:
     get:
       summary: Get book by title
       description: Get book by title
@@ -201,4 +201,4 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Book not found
+                    example: Book not foundr

@@ -11,9 +11,14 @@ app.use(bodyParser.json());
 
 // documentation
 const swaggerDocument = yamljs.load("./swagger.yaml");
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use("/", require("./routes/bookRouter"));
+app.use("/api", require("./routes/bookRouter"));
+
+app.get("/", (req, res) => {
+    // redirect to documentation
+    res.redirect("/doc");
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
